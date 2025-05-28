@@ -14,7 +14,7 @@ A comprehensive RESTful API for managing subscription plans and user subscriptio
 - [Setup Instructions](#setup-instructions)
 - [API Endpoints](#api-endpoints)
 - [Development Approach](#development-approach)
-- [Assessment Criteria](#assessment-criteria)
+
 
 ## ✨ Features
 
@@ -300,9 +300,7 @@ The development of this project followed these key principles:
 
 7. **Error Handling**: Comprehensive error handling with appropriate HTTP status codes and error messages.
 
-## 📊 Assessment Criteria
 
-This project meets the assessment criteria in the following ways:
 
 ### 1. Code Quality
 - **Modularity**: Clear separation of concerns with models, schemas, routes, and services
