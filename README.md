@@ -1,77 +1,73 @@
-# Subscription-Based Microservice
+# 🧩 Subscription-Based Microservice
 
-A comprehensive RESTful API for managing subscription plans and user subscriptions built with FastAPI and PostgreSQL. This project implements a complete subscription management system with user authentication, role-based access control, and automated subscription lifecycle management.
+> A modular, RESTful API for managing **subscription plans** and **user subscriptions**, built with **FastAPI**, **PostgreSQL**, and **clean architecture** principles.
 
-## 📋 Table of Contents
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
-- [Database Schema](#database-schema)
-- [API Design](#api-design)
-- [Authentication & Authorization](#authentication--authorization)
-- [Subscription Lifecycle](#subscription-lifecycle)
-- [Setup Instructions](#setup-instructions)
-- [API Endpoints](#api-endpoints)
-- [Development Approach](#development-approach)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.95.1-brightgreen)](https://fastapi.tiangolo.com/) 
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-blue)](https://www.postgresql.org/)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-yellow)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
+---
+
+## 📚 Table of Contents
+
+- [✨ Features](#-features)
+- [🛠️ Tech Stack](#-tech-stack)
+- [🏗️ Architecture](#-architecture)
+- [📁 Project Structure](#-project-structure)
+- [💾 Database Schema](#-database-schema)
+- [🔄 API Design](#-api-design)
+- [🔐 Authentication & Authorization](#-authentication--authorization)
+- [⏱️ Subscription Lifecycle](#-subscription-lifecycle)
+- [🚀 Setup Instructions](#-setup-instructions)
+- [📝 API Endpoints](#-api-endpoints)
+- [💡 Development Approach](#-development-approach)
+
+---
 
 ## ✨ Features
 
-- **User Management**
-  - User registration and authentication
-  - Role-based access control (Admin/Regular users)
-  - JWT-based secure authentication
+- 👤 **User Management**
+  - Registration, login, and profile info
+  - Role-based access (admin/user)
+  - JWT authentication
 
-- **Plan Management**
-  - Create, read, update, and delete subscription plans
-  - Configure plan pricing, duration, and features
-  - Activate/deactivate plans
+- 🗂️ **Plan Management**
+  - Create/update/delete subscription plans
+  - Price, duration, features management
 
-- **Subscription Management**
-  - Create subscriptions for users
-  - Upgrade/downgrade between plans
-  - Cancel subscriptions
-  - View subscription history
+- 📦 **Subscription Management**
+  - User subscriptions with upgrade/downgrade
+  - History, cancelation, and lifecycle handling
 
-- **Automated Processes**
-  - Automatic subscription expiration checks
-  - Status transitions (ACTIVE → EXPIRED → CANCELLED)
-  - Background tasks for maintenance operations
+- ⏳ **Automation**
+  - Auto-expiry & status transitions
+  - Background lifecycle maintenance
 
-- **Security & Validation**
-  - Input validation with Pydantic
-  - Password hashing with bcrypt
-  - JWT token-based authentication
-  - Role-based endpoint protection
+- 🔒 **Security & Validation**
+  - Pydantic schemas for input validation
+  - JWT + bcrypt for secure auth
+  - Endpoint-level role protection
+
+---
 
 ## 🛠️ Tech Stack
 
-- **Language**: Python 3.8+
-- **Framework**: FastAPI 0.95.1
-  - High performance, easy to learn, fast to code
-  - Automatic OpenAPI documentation
-  - Built-in validation with Pydantic
+| Layer          | Technology                     |
+|----------------|-------------------------------|
+| Language       | Python 3.8+                    |
+| Framework      | FastAPI                        |
+| ORM            | SQLAlchemy 2.0.12              |
+| Database       | PostgreSQL / SQLite            |
+| Auth           | JWT (python-jose), passlib     |
+| Docs           | Swagger UI + ReDoc             |
+| Server         | Uvicorn                        |
+| Dev Tools      | python-dotenv, email-validator |
 
-- **Database**: 
-  - PostgreSQL (primary)
-  - SQLite (for development/testing)
-  - SQLAlchemy 2.0.12 as ORM
-
-- **Authentication**: 
-  - JWT via python-jose 3.3.0
-  - Password hashing with passlib 1.7.4 and bcrypt 4.0.1
-
-- **API Documentation**:
-  - Automatic Swagger UI and ReDoc generation
-  - Interactive API testing through Swagger UI
-
-- **Development Tools**:
-  - Uvicorn 0.22.0 ASGI server
-  - python-dotenv 1.0.0 for environment management
-  - email-validator 2.0.0 for email validation
+---
 
 ## 🏗️ Architecture
+
 
 This project follows a clean architecture pattern with clear separation of concerns:
 
@@ -133,6 +129,18 @@ subscription_service/
 
 ## 💾 Database Schema
 
+✅ Modular, readable, and scalable codebase.
+
+---
+
+## 💾 Database Schema
+
+### **Entity Relations**
+- One-to-many: `User → Subscriptions`
+- One-to-many: `Plan → Subscriptions`
+- Many-to-one: `Subscription → (User, Plan)`
+
+
 The database consists of three main entities:
 
 1. **User**
@@ -161,6 +169,10 @@ The database consists of three main entities:
 - A Plan can be associated with multiple Subscriptions (one-to-many)
 - A Subscription belongs to exactly one User and one Plan (many-to-one)
 
+
+---
+
+
 ## 🔄 API Design
 
 The API follows RESTful conventions with intuitive endpoint design:
@@ -171,6 +183,10 @@ The API follows RESTful conventions with intuitive endpoint design:
 - **Query Parameters**: For filtering, pagination, and sorting
 - **Path Parameters**: For identifying specific resources
 - **Request/Response Bodies**: Consistent JSON structure with proper validation
+
+
+---
+
 
 ## 🔐 Authentication & Authorization
 
@@ -189,6 +205,10 @@ The API follows RESTful conventions with intuitive endpoint design:
   - Token-based authentication
   - CORS middleware configuration
 
+
+---
+
+
 ## ⏱️ Subscription Lifecycle
 
 Subscriptions follow a defined lifecycle:
@@ -200,6 +220,9 @@ Subscriptions follow a defined lifecycle:
 3. **Cancellation**: User or admin can cancel a subscription, changing status to CANCELLED
 4. **Expiration**: System automatically marks subscriptions as EXPIRED when end_date is reached
 5. **Renewal**: User can create a new subscription after cancellation or expiration
+
+---
+
 
 ## 🚀 Setup Instructions
 
@@ -255,6 +278,11 @@ API documentation will be available at:
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
 
+
+---
+
+
+
 ## 📝 API Endpoints
 
 ### Authentication
@@ -282,6 +310,10 @@ API documentation will be available at:
 - `DELETE /api/v1/subscriptions/{subscription_id}` - Cancel a subscription
 - `POST /api/v1/subscriptions/check-expired` - Manually check for expired subscriptions (admin only)
 
+
+
+---
+
 ## 💡 Development Approach
 
 The development of this project followed these key principles:
@@ -300,6 +332,8 @@ The development of this project followed these key principles:
 
 7. **Error Handling**: Comprehensive error handling with appropriate HTTP status codes and error messages.
 
+
+---
 
 
 ### 1. Code Quality
