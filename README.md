@@ -95,6 +95,14 @@ This project follows a clean architecture pattern with clear separation of conce
    - Error handling
    - Logging
 
+
+## 📸 Screenshots
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+
+
+
 ## 📁 Project Structure
 
 ```
