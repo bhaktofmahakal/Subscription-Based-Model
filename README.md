@@ -98,8 +98,8 @@ This project follows a clean architecture pattern with clear separation of conce
 
 ## 📸 Screenshots
 
-### 🔐 Login Page
-![Login Page](screenshots/login.png)
+### 🔐 Dashboard Page
+![UI Page](image/image.png)
 
 
 
