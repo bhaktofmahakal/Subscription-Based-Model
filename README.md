@@ -99,7 +99,7 @@ This project follows a clean architecture pattern with clear separation of conce
 ## 📸 Screenshots
 
 ### 🔐 Dashboard Page
-![UI Page](image/image.png)
+![UI Page](image/image.jpg)
 
 
 
