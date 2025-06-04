@@ -291,6 +291,8 @@ API documentation will be available at:
 - ReDoc: http://localhost:8000/redoc
 
 
+</details>
+
 ---
 
 
