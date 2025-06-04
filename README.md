@@ -226,6 +226,10 @@ Subscriptions follow a defined lifecycle:
 
 ## 🚀 Setup Instructions
 
+<details>
+<summary>Click to view</summary>
+
+
 ### Prerequisites
 
 - Python 3.8+
